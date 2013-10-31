@@ -8,7 +8,12 @@
    <@script src="${url.context}/res/components/guest/login.js" group="login"/>
    <@inlineScript>
    		window.onload=function() {
-   			document.body.setAttribute("style", "background-image: url(${url.context}/scripts/vieweditor/images/europa-bg.png); background-repeat: no-repeat; background-attachment: fixed; background-color:#000000;");
+            var style = "background-image: url(${url.context}/scripts/vieweditor/images/europa-bg.png); background-repeat: no-repeat; background-attachment: fixed; background-color:#000000;";
+            document.body.setAttribute("style", style);
+            var elems = document.getElementsByClassName('sticky-wrapper');
+            for (var ii in elems) {
+               elems[ii].setAttribute("style", style);
+            }
    		};
    </@>
 </@>
