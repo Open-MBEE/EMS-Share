@@ -49,4 +49,54 @@
       </remote>
    </config>
 
+   <!-- Add in custom Advanced Search -->
+   <config evaluator="string-compare" condition="AdvancedSearch">
+      <advanced-search>
+         <!-- Forms for the advanced search type list -->
+         <forms>
+            <!--
+               The 'form' config element contains the name of the model type
+               of the form to display.
+               
+               The element supports the following optional attributes:
+                  id = form id, the id of "search" will be assumed if not set
+                  label = label text to display - defaults to model type if not set
+                  labelId = I18N message id of label text to display
+                  description = description text to display
+                  descriptionId = I18N message id of description text to display
+            -->
+            <form labelId="search.form.label.view_modelelement" descriptionId="search.form.desc.view_modelelement">view:ModelElement</form>
+         </forms>
+      </advanced-search>
+   </config>
+   
+   <config evaluator="string-compare" condition="DocumentLibrary">
+      <types>
+         <type name="cm:content">
+         	<subtype name="view:ModelElement"/>
+         </type>
+
+         <type name="cm:folder">
+         </type>
+      </types>
+    </config>
+
+  <config evaluator="model-type" condition="view:ModelElement">
+      <forms>
+         <!-- Search form -->
+         <form id="search">
+            <field-visibility>
+               <show id="view:mdid" />
+               <show id="view:name" />
+               <show id="view:documentation" />
+            </field-visibility>
+            <appearance>
+            	<field id="view:mdid" label="MD ID" />
+            	<field id="view:name" label="Name" />
+            	<field id="view:documentation" label="Documentation" />
+            </appearance>
+         </form>
+      </forms>
+   </config>
+   
 </alfresco-config>
