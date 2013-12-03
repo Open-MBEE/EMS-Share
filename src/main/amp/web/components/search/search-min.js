@@ -391,7 +391,12 @@
             
             // displayname and link to details page
             var displayName = oRecord.getData("displayName");
-            var desc = '<h3 class="itemname"><a href="' + recordUrl + '" class="theme-color-1">' + $html(displayName) + '</a>';
+            // [CYL - added: modified to remove site reference since these URLs don't work)
+            if (site) {
+                var desc = '<h3 class="itemname"><a href="' + recordUrl.replace('/site/' + site.shortName,'') + '" class="theme-color-1">' + $html(displayName) + '</a>';
+            } else {
+                var desc = '<h3 class="itemname"><a href="' + recordUrl + '" class="theme-color-1">' + $html(displayName) + '</a>';
+            }
             // add title (if any) to displayname area
             var title = oRecord.getData("title");
             if (title && title !== displayName)
