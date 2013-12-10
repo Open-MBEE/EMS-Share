@@ -391,8 +391,14 @@
             
             // displayname and link to details page
             var displayName = oRecord.getData("displayName");
-            // [CYL - added: modified to remove site reference since these URLs don't work)
-            if (site) {
+            // [CYL] - added: modified to remove site reference since the URLs for content instance don't work - specialized do
+            var discussion = '/site/' + site.shortName + '/discussions';
+            var wiki = '/site/' + site.shortName + '/wiki';
+            var blog = '/site/' + site.shortName + '/blog';
+            var calendar = '/site/' + site.shortName + '/calendar';
+            var links = '/site/' + site.shortName + '/links';
+            var datalists = '/site/' + site.shortName + '/data-lists';
+            if (site && recordUrl.indexOf(discussion)<0 && recordUrl.indexOf(wiki)<0 && recordUrl.indexOf(blog)<0 && recordUrl.indexOf(calendar)<0 && recordUrl.indexOf(links)<0 && recordUrl.indexOf(datatlists)<0) {
                 var desc = '<h3 class="itemname"><a href="' + recordUrl.replace('/site/' + site.shortName,'') + '" class="theme-color-1">' + $html(displayName) + '</a>';
             } else {
                 var desc = '<h3 class="itemname"><a href="' + recordUrl + '" class="theme-color-1">' + $html(displayName) + '</a>';
