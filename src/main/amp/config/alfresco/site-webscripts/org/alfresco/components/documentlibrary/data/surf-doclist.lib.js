@@ -62,6 +62,7 @@ var this_DocList = this;
  */
 var DocList =
 {
+   SYSML_PROP_NAME: "sysml:name",
    PROP_NAME: "cm:name",
    PROP_TITLE: "cm:title",
 
@@ -136,15 +137,33 @@ var DocList =
           */
 
          item.nodeRef = node.nodeRef;
+
          item.fileName = node.properties[DocList.PROP_NAME];
+            // [CYL] added
+            if (DocList.SYSML_PROP_NAME in node.properties) {
+                sysmlName = node.properties[DocList.SYSML_PROP_NAME];
+                if (sysmlName.length > 0) {
+                  item.fileName = node.properties[DocList.SYSML_PROP_NAME];
+                } else {
+                  item.fileName = node.properties[DocList.PROP_NAME];
+                }
+            } else {
+                item.fileName = node.properties[DocList.PROP_NAME];
+            }
          if (node.isLink)
          {
             item.displayName = node.properties[DocList.PROP_TITLE];
          }
          else
          {
-            if ("sysml:name" in node.properties) {
-                item.displayName = node.properties["sysml:name"];
+            // [CYL] added
+            if (DocList.SYSML_PROP_NAME in node.properties) {
+                sysmlName = node.properties[DocList.SYSML_PROP_NAME];
+                if (sysmlName.length > 0) {
+                  item.displayName = node.properties[DocList.SYSML_PROP_NAME] + '  (' + node.properties[DocList.PROP_NAME] + ')';
+                } else {
+                  item.displayName = node.properties[DocList.PROP_NAME];
+                }
             } else {
                 item.displayName = node.properties[DocList.PROP_NAME];
             }
