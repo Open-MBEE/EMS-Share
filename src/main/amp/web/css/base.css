@@ -22,14 +22,14 @@ blockquote
 
 .alfresco-share .sticky-wrapper ul
 {
-   padding: 0;
+   */padding: 0;*/
    margin-left: 0;
    list-style-position: inside;
 }
 
 .yui-overlay ul
 {
-   /*padding: 0;*/
+   padding: 0;
    margin-left: 0;
    list-style-position: inside;
 }
