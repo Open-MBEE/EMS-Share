@@ -7,7 +7,6 @@
    <#-- JavaScript Dependencies -->
    <@script type="text/javascript" src="${url.context}/res/modules/taglibrary/taglibrary.js" group="blog"/>
    <@script type="text/javascript" src="${url.context}/res/components/blog/postedit.js" group="blog"/>
-   <@script type="text/javascript" src="${url.context}/res/modules/editors/tiny_mce/plugins/asciimath/js/ASCIIMathML.js"/>
 </@>
 
 <@markup id="widgets">
