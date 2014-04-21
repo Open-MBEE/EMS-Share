@@ -6,7 +6,6 @@
 <@markup id="js">
    <#-- JavaScript Dependencies -->
    <@script src="${url.context}/res/components/discussions/replies.js" group="discussions"/>
-   <@script type="text/javascript" src="${url.context}/res/modules/editors/tiny_mce/plugins/asciimath/js/ASCIIMathML.js"/>
 </@>
 
 <@markup id="widgets">
