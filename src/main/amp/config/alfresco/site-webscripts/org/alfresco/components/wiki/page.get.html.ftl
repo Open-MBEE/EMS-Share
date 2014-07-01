@@ -17,7 +17,6 @@
    <@script src="${url.context}/res/modules/simple-editor.js" group="wiki"/>
    <@script src="${url.context}/res/modules/taglibrary/taglibrary.js" group="wiki"/>
    <@script src="${url.context}/res/modules/wiki/revert-wiki-version.js" group="wiki"/>
-   <@script type="text/javascript" src="${url.context}/res/modules/editors/tiny_mce/plugins/asciimath/js/ASCIIMathML.js"/>
 </@>
 
 <@markup id="widgets">
