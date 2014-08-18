@@ -19,19 +19,19 @@ function main()
    var siteName = page.url.templateArgs.site;
    if (siteName)
    {
-	   //TODO make Url relative.../alfresco/mmsapp/docweb.html#/sites
 	   try{
-		   uri = config.global.share.host + "/alfresco/mmsapp/docweb.html#/sites/" + siteName;
+		   var cfg = config.global;
+		   uri = cfg.share.protocl + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/sites/' + siteName;
 	   }
 	   catch(error){
-		   uri = "https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/sites/" + siteName;
+		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/sites/' + siteName;
 	   }
-	   docwebTitle = siteName + " Docweb";
+	   docwebTitle = siteName + ' Docweb';
    }
    else{
 	 //TODO make Url relative.../afresco/mmsappbeta/portal.html
-	   uri = "https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html";
-	   docwebTitle = "Docweb Portal";
+	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html';
+	   docwebTitle = 'Docweb Portal';
    }
    try{
 	   alert("url: " + page.url);
