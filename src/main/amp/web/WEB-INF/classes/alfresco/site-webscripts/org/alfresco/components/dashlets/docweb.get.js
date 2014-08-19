@@ -33,12 +33,6 @@ function main()
 	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html';
 	   docwebTitle = 'Docweb Portal';
    }
-   try{
-	   alert("url: " + page.url);
-	   alert("host: " + page.url.host);
-	   alert("port: " + page.url.port);
-   }
-   catch(e){;}
     
    /*if (args.docwebTitle)
    {
