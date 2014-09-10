@@ -21,7 +21,7 @@ function main()
    {
 	   try{
 		   var cfg = config.global;
-		   uri = cfg.share.protocl + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/sites/' + siteName;
+		   uri = cfg.share.protocol + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/sites/' + siteName;
 	   }
 	   catch(error){
 		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/sites/' + siteName;
