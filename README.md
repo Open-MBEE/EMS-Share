@@ -3,7 +3,7 @@
 
 To build the amp file, do
 
-	mvn package
+	mvn package -P mbee-dev
 	
 To run in embedded jetty container
 

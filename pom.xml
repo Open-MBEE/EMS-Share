@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.nasa.jpl</groupId>
     <artifactId>view-share</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${env.BUILD_NUMBER}</version>
     <name>view-share AMP project</name>
     <packaging>amp</packaging>
     <description>Manages the lifecycle of the view-share AMP (Alfresco Module Package)</description>
@@ -15,6 +15,18 @@
         <version>1.1.1</version>
     </parent>
 
+    <profiles>
+        <profile>
+            <id>mbee-dev</id>
+            <properties>
+                <env.BUILD_NUMBER>1</env.BUILD_NUMBER>
+            </properties>
+        </profile>
+        <profile>
+            <id>jenkins</id>
+        </profile>
+    </profiles>
+    
     <!-- 
        | SDK properties have sensible defaults in the SDK parent,
        | but you can override the properties below to use another version. 
