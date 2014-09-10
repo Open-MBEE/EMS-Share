@@ -9,6 +9,15 @@
     <packaging>amp</packaging>
     <description>Manages the lifecycle of the view-share AMP (Alfresco Module Package)</description>
 
+  <distributionManagement>
+      <!-- use mvn -U deploy -DgeneratePom=true -Dpackaging=jar  -->
+      <repository>
+          <id>artifactory</id>
+          <name>releases</name>
+          <url>http://europambee-build.jpl.nasa.gov:8082/artifactory/libs-release-local</url>
+      </repository>
+  </distributionManagement>
+
     <parent>
         <groupId>org.alfresco.maven</groupId>
         <artifactId>alfresco-sdk-parent</artifactId>
