@@ -3,7 +3,7 @@
 
 To build the amp file, do
 
-	mvn package
+	mvn package -P mbee-dev
 	
 To run in embedded jetty container
 
@@ -12,5 +12,7 @@ To run in embedded jetty container
 To clean all data and artifacts
 
 	mvn clean -Ppurge
-	
-Go to [http://localhost:8081/view-share/](http://localhost:8081/view-share/) for the share interface (start the view-repo server first!)
+
+Note that for Alfresco 4.2.e the URLs have changed to match the deployed application (E.g., share instead of view-share).
+
+Go to [http://localhost:8081/share/](http://localhost:8081/share/) for the share interface (start the view-repo server first!)
