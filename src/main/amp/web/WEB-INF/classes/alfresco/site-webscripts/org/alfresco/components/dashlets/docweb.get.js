@@ -7,8 +7,8 @@ function main()
    //if (!uri)
    //{
       // Use the default
-	   //TODO make Url relative.../afresco/mmsappbeta/portal.html
-	   //uri = "https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html";
+	   //TODO make Url relative.../afresco/mmsapp/portal.html
+	   //uri = "https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html";
 	   //docwebTitle = "Docweb Portal";
 	   //isDefault = true;
       /*var conf = new XML(config.script);
@@ -29,8 +29,8 @@ function main()
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
-	 //TODO make Url relative.../afresco/mmsappbeta/portal.html
-	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html';
+	 //TODO make Url relative.../afresco/mmsapp/portal.html
+	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html';
 	   docwebTitle = 'Docweb Portal';
    }
     
