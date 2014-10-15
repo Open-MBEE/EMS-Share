@@ -21,16 +21,16 @@ function main()
    {
 	   try{
 		   var cfg = config.global;
-		   uri = cfg.share.protocol + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/sites/' + siteName;
+		   uri = cfg.share.protocol + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
 	   }
 	   catch(error){
-		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/sites/' + siteName;
+		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
 	   }
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
 	 //TODO make Url relative.../afresco/mmsapp/portal.html
-	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html';
+	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html#/workspaces/master';
 	   docwebTitle = 'Docweb Portal';
    }
     
