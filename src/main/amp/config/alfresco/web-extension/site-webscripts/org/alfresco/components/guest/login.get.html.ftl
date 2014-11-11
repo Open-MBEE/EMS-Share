@@ -31,10 +31,10 @@
 			<tbody>
 				<tr>
 					<td>
-						<img src="${url.context}/scripts/vieweditor/images/europa-icon.png" width="60" height="52" alt="Europa EMS" title="Europa EMS">
+						<img src="${url.context}/scripts/vieweditor/images/europa-icon.png" width="60" height="52" alt="Europa Engineering Modeling System" title="Europa Engineering Modeling System">
 					</td>
 					<td>
-					    <span style="font-size:30px;"><b>  Europa EMS</b></span>
+					    <span style="font-size:30px;"><b>  Europa Engineering Modeling System</b></span>
 					</td>
 				</tr>
 			</tbody>
