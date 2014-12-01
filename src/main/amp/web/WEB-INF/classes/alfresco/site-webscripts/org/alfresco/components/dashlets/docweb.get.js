@@ -15,25 +15,40 @@ function main()
       uri = conf.uri[0].toString();
       isDefault = true;*/
    //}
+   var connector = remote.connect("alfresco");
+   var result = connector.get("/javawebscripts/hostname");
+   
+   var data = result.response + ' ';
+   if(data == null){
+	   //uri = 'www.nodata.com';
+	   //TO DO handle no data
+	   return;
+   }
+   var json = jsonUtils.toObject(data);
+   if(json == null){
+	   //uri = 'www.nojson.com';
+	   //TO DO handle exception
+	   return;
+   }
    
    var siteName = page.url.templateArgs.site;
    if (siteName)
    {
 	   try{
-		   var cfg = config.global;
-		   uri = cfg.share.protocol + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
+		   uri = json.alfresco.protocol + '://' + json.alfresco.host + ':' + json.alfresco.port + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
 	   }
 	   catch(error){
-		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
+		   uri = 'https://europaems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
 	   }
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
 	 //TODO make Url relative.../afresco/mmsapp/portal.html
-	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html#/workspaces/master';
+	   //uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/portal.html#/workspaces/master';
+	   uri = json.alfresco.protocol + '://' + json.alfresco.host + ':' + json.alfresco.port + '/alfresco/mmsapp/portal.html#/workspaces/master';
 	   docwebTitle = 'Docweb Portal';
    }
-    
+   
    /*if (args.docwebTitle)
    {
       docwebTitle = args.docwebTitle;
