@@ -20,14 +20,13 @@ function main()
    
    var data = result.response + ' ';
    if(data == null){
-	   //uri = 'www.nodata.com';
-	   //TO DO handle no data
+	   throw new Error('Unable to retrieve host information.');
 	   return;
    }
+
    var json = jsonUtils.toObject(data);
    if(json == null){
-	   //uri = 'www.nojson.com';
-	   //TO DO handle exception
+	   throw new Error('Unable to parse host information JSON.');
 	   return;
    }
    
