@@ -19,14 +19,18 @@ function main()
 	   return;
    }
    
+   var hostname = json.alfresco.host;
+   if(hostname.toLowerCase()=='localhost') hostname += ':' + json.alfresco.port;
+   hostname = json.alfresco.protocol + '://' + hostname;
+   
    var siteName = page.url.templateArgs.site;
    if (siteName)
    {
-	   uri = json.alfresco.protocol + '://' + json.alfresco.host + ':' + json.alfresco.port + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
+	   uri = hostname + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
-	   uri = json.alfresco.protocol + '://' + json.alfresco.host + ':' + json.alfresco.port + '/alfresco/mmsapp/portal.html#/workspaces/master';
+	   uri = hostname + '/alfresco/mmsapp/portal.html#/workspaces/master';
 	   docwebTitle = 'Docweb Portal';
    }
    
