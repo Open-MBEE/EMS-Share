@@ -26,11 +26,11 @@ function main()
    var siteName = page.url.templateArgs.site;
    if (siteName)
    {
-	   uri = hostname + '/alfresco/mmsapp/docweb.html#/workspaces/master/sites/' + siteName;
+	   uri = hostname + '/alfresco/mmsapp/portal.html#/workspaces/master/tags/latest/sites/' + siteName;
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
-	   uri = hostname + '/alfresco/mmsapp/portal.html#/workspaces/master';
+	   uri = hostname + '/alfresco/mmsapp/portal.html#/workspaces/master/tags/latest';
 	   docwebTitle = 'Docweb Portal';
    }
    
