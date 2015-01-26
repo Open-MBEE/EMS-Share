@@ -9,17 +9,23 @@ function main()
    
    model.loginUrl = url.context + "/page/dologin";
    var successUrl = context.properties["alfRedirectUrl"];
-   var error = "error=true";
+   var error = "?&error=true"; //can use for both instances so should be fine? not pretty but it'll do
    if (successUrl === null)
    {
       successUrl = url.context;
    }
-   
-//   successUrl = successUrl.replace(error, "");
+
+   successUrl = successUrl.replace(error, "");
    successUrl = successUrl.replace("?" + error, "");
-   successUrl = successUrl.replace("&" + error, "");
-   if(url.queryString === null) error = "?" + error;
-   else error = "&" + error;
+//----------WILL DELETE SOON AS GET APPROVAL FOR CODE ABOVE, JUST WANT TO KEEP FOR NOW IN CASE NEED TO REMEMBER WHAT I TRIED-------------- 
+//   successUrl = successUrl.replace("&" + error, "");
+//   if(url.queryString, === null) error = "&error=true" //+ error;
+//   if(!window.location.search) error = "?error=true";
+//   if(successurl.indexOf('?')!=-1) error = "?" + error;
+//   else error = "&" + error;
+//   if(url.queryString !== null) error = "&" + error;
+//   else error = "?" + error;
+//----------------------------------------------------------------------------------------------------------------------------
    model.successUrl = successUrl;
    //model.failureUrl = url.context + "/page/type/login?error=true";
    model.failureUrl = successUrl + error;
