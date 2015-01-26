@@ -45,6 +45,11 @@
       </remote>
    </config>
 -->
+
+   <config evaluator="string-compare" condition="RepositoryLibrary" replace="true">
+      <visible>true</visible>
+   </config>
+
    <!-- Add in custom Advanced Search -->
    <config evaluator="string-compare" condition="AdvancedSearch">
       <advanced-search>
