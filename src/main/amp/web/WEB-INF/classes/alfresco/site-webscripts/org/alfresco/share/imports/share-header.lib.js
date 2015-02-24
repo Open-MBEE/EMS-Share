@@ -1178,7 +1178,18 @@ function generateAppItems() {
             label: "header.menu.people.label",
             targetUrl: "people-finder"
          }
-      }
+      },
+      {
+        id: "HEADER_VIEW_EDITOR",
+        name: "alfresco/menus/AlfMenuBarItem",
+        config: {
+           id: "HEADER_VIEW_EDITOR",
+           label: "EMS",
+           targetUrl: getAlfrescoUrl() + "/alfresco/mmsapp/mm.html#/workspace/master",
+           targetUrlLocation: "NEW",
+           targetUrlType: "FULL_PATH"
+        }
+     }
    ];
    if (user.isAdmin || showRepositoryLink == "true")
    {
@@ -1965,6 +1976,19 @@ function getAlfrescoHostname(){
 	}
 	
 	return json.alfresco.host;
+}
+
+function getAlfrescoUrl(){
+	var json;
+	try{
+		json = getHostInfo();
+		var hostname = json.alfresco.host;
+		if(hostname.toLowerCase()=='localhost') hostname += ':' + json.alfresco.port;
+		return (json.alfresco.protocol + '://' + hostname);
+	}
+	catch(err){
+		throw new Error('Unable to get host info.');
+	}
 }
 
 function isEuropaEMS(){
