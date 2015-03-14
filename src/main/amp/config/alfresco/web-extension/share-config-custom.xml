@@ -66,7 +66,7 @@
                   description = description text to display
                   descriptionId = I18N message id of description text to display
             -->
-            <form labelId="search.form.label.view_modelelement" descriptionId="search.form.desc.view_modelelement">view:ModelElement</form>
+            <form labelId="search.form.label.sysml_element" descriptionId="search.form.desc.sysml_element">sysml:Element</form>
          </forms>
       </advanced-search>
    </config>
@@ -74,7 +74,7 @@
    <config evaluator="string-compare" condition="DocumentLibrary">
       <types>
          <type name="cm:content">
-         	<subtype name="view:ModelElement"/>
+         	<subtype name="sysml:Element"/>
          </type>
 
          <type name="cm:folder">
@@ -82,19 +82,19 @@
       </types>
     </config>
 
-  <config evaluator="model-type" condition="view:ModelElement">
+  <config evaluator="model-type" condition="sysml:Element">
       <forms>
          <!-- Search form -->
          <form id="search">
             <field-visibility>
-               <show id="view:mdid" />
-               <show id="view:name" />
-               <show id="view:documentation" />
+               <show id="sysml:id" />
+               <show id="sysml:name" />
+               <show id="sysml:documentation" />
             </field-visibility>
             <appearance>
-            	<field id="view:mdid" label="MD ID" />
-            	<field id="view:name" label="Name" />
-            	<field id="view:documentation" label="Documentation" />
+            	<field id="sysml:id" label="Sysml ID" />
+            	<field id="sysml:name" label="Sysml Name" />
+            	<field id="sysml:documentation" label="Sysml Documentation" />
             </appearance>
          </form>
       </forms>

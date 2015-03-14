@@ -391,6 +391,19 @@
             
             // displayname and link to details page
             var displayName = oRecord.getData("displayName");
+            // add title (if any) to displayname area
+            var title = oRecord.getData("title");
+
+            // [CYL - added]
+            // view link (if any) (match up with repo search.lib.js)
+            var sysmlId = oRecord.getData("sysmlId");
+            var sysmlName = oRecord.getData("sysmlName");
+            if (sysmlId && sysmlName) {
+            		title = sysmlId;
+            		displayName = sysmlName;
+            }
+            
+            if (site) {
             // [CYL] - added: modified to remove site reference since the URLs for content instance don't work - specialized do
             var discussion = '/site/' + site.shortName + '/discussions';
             var wiki = '/site/' + site.shortName + '/wiki';
@@ -398,13 +411,13 @@
             var calendar = '/site/' + site.shortName + '/calendar';
             var links = '/site/' + site.shortName + '/links';
             var datalists = '/site/' + site.shortName + '/data-lists';
+            }
             if (site && recordUrl.indexOf(discussion)<0 && recordUrl.indexOf(wiki)<0 && recordUrl.indexOf(blog)<0 && recordUrl.indexOf(calendar)<0 && recordUrl.indexOf(links)<0 && recordUrl.indexOf(datalists)<0) {
                 var desc = '<h3 class="itemname"><a href="' + recordUrl.replace('/site/' + site.shortName,'') + '" class="theme-color-1">' + $html(displayName) + '</a>';
             } else {
                 var desc = '<h3 class="itemname"><a href="' + recordUrl + '" class="theme-color-1">' + $html(displayName) + '</a>';
             }
-            // add title (if any) to displayname area
-            var title = oRecord.getData("title");
+
             if (title && title !== displayName)
             {
                desc += '<span class="title">(' + $html(title) + ')</span>';
@@ -416,14 +429,6 @@
             if (txt)
             {
                desc += '<div class="details meta">' + $html(txt) + '</div>';
-            }
-            
-            // [CYL - added]
-            // view link (if any)
-            var mdid = oRecord.getData("viewMdid");
-            if (mdid) {
-                var veUrl = window.location.protocol + "//" + window.location.host + "/alfresco/wcs/ui/views/" + mdid;
-                desc += '<div class="details"><a href="' + veUrl + '">View Name: ' + oRecord.getData("viewName") + '</a></div>';
             }
             
             // detailed information, includes site etc. type specific
