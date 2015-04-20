@@ -4,41 +4,36 @@ function main()
       docwebTitle = '',
       isDefault = false;
 
-   //if (!uri)
-   //{
-      // Use the default
-	   //TODO make Url relative.../afresco/mmsappbeta/portal.html
-	   //uri = "https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html";
-	   //docwebTitle = "Docweb Portal";
-	   //isDefault = true;
-      /*var conf = new XML(config.script);
-      uri = conf.uri[0].toString();
-      isDefault = true;*/
-   //}
+   var connector = remote.connect("alfresco");
+   var result = connector.get("/javawebscripts/hostname");
+   
+   var data = result.response + ' ';
+   if(data == null){
+	   throw new Error('Unable to retrieve host information.');
+	   return;
+   }
+
+   var json = jsonUtils.toObject(data);
+   if(json == null){
+	   throw new Error('Unable to parse host information JSON.');
+	   return;
+   }
+   
+   var hostname = json.alfresco.host;
+   if(hostname.toLowerCase()=='localhost') hostname += ':' + json.alfresco.port;
+   hostname = json.alfresco.protocol + '://' + hostname;
    
    var siteName = page.url.templateArgs.site;
    if (siteName)
    {
-	   try{
-		   var cfg = config.global;
-		   uri = cfg.share.protocol + '://' + cfg.share.host + cfg.share.port + '/alfresco/mmsapp/docweb.html#/sites/' + siteName;
-	   }
-	   catch(error){
-		   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsapp/docweb.html#/sites/' + siteName;
-	   }
+	   uri = hostname + '/alfresco/mmsapp/mms.html#/workspaces/master/sites/' + siteName;
 	   docwebTitle = siteName + ' Docweb';
    }
    else{
-	 //TODO make Url relative.../afresco/mmsappbeta/portal.html
-	   uri = 'https://ems.jpl.nasa.gov/alfresco/mmsappbeta/portal.html';
+	   uri = hostname + '/alfresco/mmsapp/mms.html#/workspaces/master';
 	   docwebTitle = 'Docweb Portal';
    }
-    
-   /*if (args.docwebTitle)
-   {
-      docwebTitle = args.docwebTitle;
-   }*/
-
+   
    var height = args.height;
    if (!height)
    {

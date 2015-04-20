@@ -97,8 +97,11 @@
          <plugin src="imgpreview">Image</plugin>
       </condition>
 
+	  <condition mimeType="image/bmp">
+	  	<plugin srcMaxSize="2000000">Image</plugin>
+	  </condition>
+      
       <!-- Images in real size (if they didn't have a imgpreview) -->
-
       <condition mimeType="image/jpeg">
          <plugin srcMaxSize="2000000">Image</plugin>
       </condition>

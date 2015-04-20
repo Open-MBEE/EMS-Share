@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.nasa.jpl</groupId>
-    <artifactId>mms-share</artifactId>
+    <artifactId>mms-share-ent</artifactId>
     <version>2.1</version>
     <name>view-share AMP project</name>
     <packaging>amp</packaging>
@@ -50,7 +50,7 @@
         <!-- Defines the alfresco edition to compile against. Allowed values are [org.alfresco|org.alfresco.enterprise]--> 
         <alfresco.groupId>org.alfresco</alfresco.groupId>
         <!-- Defines the alfresco version to compile against -->
-        <alfresco.version>4.2.e</alfresco.version>
+        <alfresco.version>4.2.3.3</alfresco.version>
         <app.log.root.level>WARN</app.log.root.level>
         <alfresco.data.location>alf_data_dev</alfresco.data.location>
         <!-- Defines the target WAR artifactId to run this amp, only used with the -Pamp-to-war switch
@@ -60,14 +60,14 @@
         .    | Could be org.alfresco | org.alfresco.enterprise or your corporate groupId -->
         <alfresco.client.war.groupId>org.alfresco</alfresco.client.war.groupId>
         <!-- Defines the target WAR version to run this amp, only used with the -Pamp-to-war switch -->
-        <alfresco.client.war.version>4.2.e</alfresco.client.war.version>
+        <alfresco.client.war.version>4.2.3.3</alfresco.client.war.version>
         <!-- This controls which properties will be picked in src/test/properties for embedded run -->
         <env>local</env>
         <!-- specify the testing deployment info -->       
-  		<maven.host>localhost</maven.host>
-  		<maven.tomcat.port>8081</maven.tomcat.port>
-  		
-		<maven.test.skip>true</maven.test.skip>
+        <maven.host>localhost</maven.host>
+        <maven.tomcat.port>8081</maven.tomcat.port>
+        
+        <maven.test.skip>true</maven.test.skip>
     </properties>
 
     <!-- Here we realize the connection with the Alfresco selected platform 
@@ -92,9 +92,18 @@
          for more info, please refer to alfresco-platform-distribution POM -->
     <dependencies>
         <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco</artifactId>
+            <version>4.2.3.3</version>
+        
+            <type>pom</type>
+        </dependency>
+        <!-- 
+        <dependency>
             <groupId>${alfresco.groupId}</groupId>
             <artifactId>alfresco-repository</artifactId>
         </dependency>
+         -->
         <!-- Test dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -114,75 +123,67 @@
         -->
     <repositories>
         <repository>
-            <id>alfresco-public</id>
-            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
-        </repository>
-        <repository>
-            <id>alfresco-public-snapshots</id>
-            <url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
+            <id>alfresco-private-repository</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/private</url>
         </repository>
     </repositories>
     
     <build>
-    		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.alfresco.maven.plugin
-										</groupId>
-										<artifactId>
-											alfresco-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.0.2,)
-										</versionRange>
-										<goals>
-											<goal>set-version</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											build-helper-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.7,)
-										</versionRange>
-										<goals>
-											<goal>
-												add-test-resource
-											</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>    
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.alfresco.maven.plugin
+                                        </groupId>
+                                        <artifactId>
+                                            alfresco-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.0.2,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>set-version</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.codehaus.mojo
+                                        </groupId>
+                                        <artifactId>
+                                            build-helper-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.7,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>
+                                                add-test-resource
+                                            </goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>    
 </project>
