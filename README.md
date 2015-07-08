@@ -13,6 +13,8 @@ To clean all data and artifacts
 
 	mvn clean -Ppurge
 
+For enterprise builds use add the -f pom.enterprise.xml option to mvn
+
 Note that for Alfresco 4.2.e the URLs have changed to match the deployed application (E.g., share instead of view-share).
 
 Go to [http://localhost:8081/share/](http://localhost:8081/share/) for the share interface (start the view-repo server first!)
