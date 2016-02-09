@@ -16,7 +16,6 @@
       <#assign fc=config.scoped["Edition"]["footer"]>
       <div class="footer ${fc.getChildValue("css-class")!"footer-com"}">
          <span class="copyright">
-			<img src="${url.context}/scripts/vieweditor/images/europa-icon.png" width=30 height=26 alt="Europa EMS" title="Europa EMS">
             <span>${msg(fc.getChildValue("label")!"label.copyright")}</span>
          </span>
       </div>

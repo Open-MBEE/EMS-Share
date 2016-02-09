@@ -8,7 +8,7 @@
 <@script src="${url.context}/res/components/guest/login.js" group="login"/>
 <@inlineScript>
 window.onload=function() {
-var style = "background-image: url(${url.context}/scripts/vieweditor/images/europa-bg.png); background-repeat: no-repeat; background-attachment: fixed; background-color:#000000;";
+var style = "background-repeat: no-repeat; background-attachment: fixed; background-color:#000000;";
 document.body.setAttribute("style", style);
 var elems = document.getElementsByClassName('sticky-wrapper');
 for (var ii in elems) {
@@ -31,10 +31,7 @@ elems[ii].setAttribute("style", style);
         <tbody>
             <tr>
                 <td>
-                    <img src="${url.context}/scripts/vieweditor/images/europa-icon.png" width="60" height="52" alt="Europa Engineering Modeling System" title="Europa Engineering Modeling System">
-                </td>
-                <td>
-                    <span style="font-size:30px;"><b>  Europa Engineering Modeling System</b></span>
+                    <span style="font-size:30px;"><b>Engineering Modeling System</b></span>
                 </td>
             </tr>
         </tbody>
@@ -81,7 +78,7 @@ elems[ii].setAttribute("style", style);
     
     <!--      
       <@markup id="footer">
-         <span class="faded tiny">JPL/Caltech BUSINESS DISCREET. Caltech Record. Not for Public Distribution.</span>
+         <span class="faded tiny">Copyright</span>
       </@markup>
 -->
     

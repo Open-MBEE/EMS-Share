@@ -1093,16 +1093,6 @@ function generateAppItems() {
             targetUrl: "user/" + encodeURIComponent(user.name) + "/dashboard"
          }
       },
-//      {
-//         id: "HEADER_EUROPA_DOCUMENT",
-//         name: "alfresco/menus/AlfMenuBarItem",
-//         config: {
-//            id: "HEADER_EUROPA_DOCUMENT",
-//            label: "Europa Documents",
-//            targetUrl: "https://europaems.jpl.nasa.gov/alfresco/mmsapp/ve.html#/sites/europa/products/_17_0_5_1_8af0285_1415240264808_136692_232061/latest/view/_17_0_5_1_8af0285_1415240264808_136692_232061",
-//            targetUrlType: "FULL_PATH",
-//         }
-//      },
       {
          id: "HEADER_MY_FILES",
          name: "alfresco/menus/AlfMenuBarItem",
@@ -1214,21 +1204,6 @@ function generateAppItems() {
             targetUrl: "console/admin-console/application"
          }
       });
-   }
-   //adding Europa Documents menu
-   if(isEuropaEMS()){
-	   appItems.splice(2, 0, 
-		   {
-	         id: "HEADER_EUROPA_DOCUMENTS",
-	         name: "alfresco/menus/AlfMenuBarItem",
-	         config: {
-	            id: "HEADER_EUROPA_DOCUMENTS",
-	            label: "Europa Documents",
-	            targetUrl: "https://europaems.jpl.nasa.gov/alfresco/mmsapp/ve.html#/sites/europa/products/_17_0_5_1_8af0285_1415240264808_136692_232061/latest/view/_17_0_5_1_8af0285_1415240264808_136692_232061",
-	            targetUrlType: "FULL_PATH",
-	         }
-	      }
-	   );
    }
    return appItems;
 }
@@ -1989,20 +1964,4 @@ function getAlfrescoUrl(){
 	catch(err){
 		throw new Error('Unable to get host info.');
 	}
-}
-
-function isEuropaEMS(){
-	var hostname;
-	try{
-		hostname = getAlfrescoHostname();
-	}
-	catch(err){
-		throw new Error(err.message);
-	}
-	
-	hostname = hostname.toLowerCase();
-	if(hostname.substring(0, 6) =='europa') return true;
-	else if(hostname.substring(0, 9) == 'localhost') return true;
-	
-	return false;
 }
