@@ -1175,7 +1175,7 @@ function generateAppItems() {
         config: {
            id: "HEADER_VIEW_EDITOR",
            label: "EMS",
-           targetUrl: getAlfrescoUrl() + "/alfresco/mmsapp/mms.html#/workspaces/master",
+           targetUrl: getAlfrescoUrl() + "/alfresco/mmsapp/mms.html",
            targetUrlLocation: "NEW",
            targetUrlType: "FULL_PATH"
         }
